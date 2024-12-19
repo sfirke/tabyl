@@ -8,14 +8,14 @@
 #' E.g., display results as a mix of percentages, Ns, add totals rows or
 #' columns, rounding options, in the style of Microsoft Excel PivotTable.
 #'
-#' A `tabyl` can be the result of a call to `janitor::tabyl()`, in which case
+#' A `tabyl` can be the result of a call to `tabyl::tabyl()`, in which case
 #' these attributes are added automatically.  This function adds `tabyl` class
 #' attributes to a data.frame that isn't the result of a call to `tabyl` but
 #' meets the requirements of a two-way tabyl: 1) First column contains values of
 #' variable 1 2) Column names 2:n are the values of variable 2 3) Numeric values
 #' in columns 2:n are counts of the co-occurrences of the two variables.*
 #'
-#' * = this is the ideal form of a `tabyl`, but janitor's `adorn_` functions tolerate
+#' * = this is the ideal form of a `tabyl`, but tabyl's `adorn_` functions tolerate
 #'   and ignore non-numeric columns in positions 2:n.
 #'
 #' For instance, the result of [dplyr::count()] followed by [tidyr::pivot_wider()]

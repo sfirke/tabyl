@@ -16,7 +16,7 @@ is mostly counting things.” But the base R function for counting,
   table formatting provided by SPSS.
 
 `tabyl()` is an approach to tabulating variables that addresses these
-shortcomings. It’s part of the janitor package because counting is such
+shortcomings. It’s part of the tabyl package because counting is such
 a fundamental part of data cleaning and exploration.
 
 `tabyl()` is tidyverse-aligned and is primarily built upon the dplyr and
@@ -52,7 +52,7 @@ humans <- starwars %>%
 Tabulating a single variable is the simplest kind of tabyl:
 
 ``` r
-library(janitor)
+library(tabyl)
 
 t1 <- humans %>%
   tabyl(eye_color)
@@ -251,7 +251,7 @@ humans %>%
   the number of digits to display and whether to append the `%` symbol
 - **`adorn_rounding()`**: Round a data.frame of numbers (usually the
   result of `adorn_percentages`), either using the base R `round()`
-  function or using janitor’s `janitor::round_half_up()` to round all ties up
+  function or using tabyl’s `janitor::round_half_up()` to round all ties up
   ([thanks,
   StackOverflow](https://stackoverflow.com/a/12688836/4470365)).
   - e.g., round 10.5 up to 11, consistent with Excel’s tie-breaking
@@ -449,6 +449,6 @@ comparison %>%
 
 ### Questions? Comments?
 
-File [an issue on GitHub](https://github.com/sfirke/janitor/issues) if
+File [an issue on GitHub](https://github.com/sfirke/tabyl/issues) if
 you have suggestions related to `tabyl()` and its `adorn_` helpers or
 encounter problems while using them.

@@ -24,7 +24,7 @@ The same as the one of \code{stats::fisher.test()}.
 }
 \description{
 This generic function overrides \code{\link[stats:fisher.test]{stats::fisher.test()}}. If the passed table
-is a two-way tabyl, it runs it through \code{janitor::fisher.test.tabyl}, otherwise
+is a two-way tabyl, it runs it through \code{tabyl::fisher.test.tabyl}, otherwise
 it just calls \code{stats::fisher.test()}.
 }
 \examples{

@@ -14,7 +14,7 @@ b <- mtcars %>%
   as.data.frame() # for comparison purposes, remove the tbl_df aspect
 
 
-test_that("as_tabyl works on result of a non-janitor count/pivot_wider", {
+test_that("as_tabyl works on result of a non-tabyl count/pivot_wider", {
   expect_equal(
     as_tabyl(a),
     as_tabyl(b, 2, "cyl", "carb")

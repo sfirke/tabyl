@@ -2,7 +2,7 @@
 #'
 #' @description
 #' A fully-featured alternative to `table()`. Results are data.frames and can be
-#' formatted and enhanced with janitor's family of `adorn_` functions.
+#' formatted and enhanced with tabyl's family of `adorn_` functions.
 #'
 #' Specify a `data.frame` and the one, two, or three unquoted column names you
 #' want to tabulate.  Three variables generates a list of 2-way tabyls,
@@ -175,7 +175,7 @@ tabyl.data.frame <- function(dat, var1, var2, var3, show_na = TRUE, show_missing
   }
 }
 
-# a one-way frequency table; this was called "tabyl" in janitor <= 0.3.0
+# a one-way frequency table
 tabyl_1way <- function(dat, var1, show_na = TRUE, show_missing_levels = TRUE) {
   x <- dplyr::select(dat, !!var1)
 
@@ -189,8 +189,7 @@ tabyl_1way <- function(dat, var1, show_na = TRUE, show_missing_levels = TRUE) {
   )
 }
 
-
-# a two-way frequency table; this was called "crosstab" in janitor <= 0.3.0
+# a two-way frequency table
 tabyl_2way <- function(dat, var1, var2, show_na = TRUE, show_missing_levels = TRUE) {
   dat <- dplyr::select(dat, !!var1, !!var2)
 

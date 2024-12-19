@@ -2,7 +2,7 @@
 #'
 #' @description
 #' This generic function overrides `stats::chisq.test`. If the passed table
-#' is a two-way tabyl, it runs it through janitor::chisq.test.tabyl, otherwise
+#' is a two-way tabyl, it runs it through tabyl::chisq.test.tabyl, otherwise
 #' it just calls `stats::chisq.test()`.
 #'
 #' @param x a two-way tabyl, a numeric vector or a factor
@@ -77,7 +77,7 @@ chisq.test.tabyl <- function(x, tabyl_results = TRUE, ...) {
       # this causes the var_names attribute to become NULL, not sure why
       x[ncol(x)] <- NULL
     }
-    warning("janitor::chisq.test.tabyl() detected a totals row and/or column.  The totals were removed from the tabyl before the test was run.
+    warning("tabyl::chisq.test.tabyl() detected a totals row and/or column.  The totals were removed from the tabyl before the test was run.
             If you intend to include the totals row and/or column in the test, first call untabyl() on the data.frame, then proceed from there.")
   }
 
@@ -123,7 +123,7 @@ chisq.test.tabyl <- function(x, tabyl_results = TRUE, ...) {
 #' Apply `stats::fisher.test()` to a two-way tabyl
 #'
 #' This generic function overrides [stats::fisher.test()]. If the passed table
-#' is a two-way tabyl, it runs it through `janitor::fisher.test.tabyl`, otherwise
+#' is a two-way tabyl, it runs it through `tabyl::fisher.test.tabyl`, otherwise
 #' it just calls `stats::fisher.test()`.
 #'
 #' @return
@@ -186,7 +186,7 @@ fisher.test.tabyl <- function(x, ...) {
     if ("col" %in% attr(x, "totals")) {
       x[ncol(x)] <- NULL
     }
-    warning("janitor::fisher.test.tabyl() detected a totals row and/or column.  The totals were removed from the tabyl before the test was run.
+    warning("tabyl::fisher.test.tabyl() detected a totals row and/or column.  The totals were removed from the tabyl before the test was run.
             If you intend to include the totals row and/or column in the test, first call untabyl() on the data.frame, then proceed from there.")
   }
 

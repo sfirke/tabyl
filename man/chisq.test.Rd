@@ -29,7 +29,7 @@ If \code{tabyl_results} is \code{TRUE}, the returned tables \code{observed}, \co
 }
 \description{
 This generic function overrides \code{stats::chisq.test}. If the passed table
-is a two-way tabyl, it runs it through janitor::chisq.test.tabyl, otherwise
+is a two-way tabyl, it runs it through tabyl::chisq.test.tabyl, otherwise
 it just calls \code{stats::chisq.test()}.
 }
 \examples{

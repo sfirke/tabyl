@@ -40,7 +40,7 @@ A 3-way tabulation returns a list of data frames.
 }
 \description{
 A fully-featured alternative to \code{table()}. Results are data.frames and can be
-formatted and enhanced with janitor's family of \code{adorn_} functions.
+formatted and enhanced with tabyl's family of \code{adorn_} functions.
 
 Specify a \code{data.frame} and the one, two, or three unquoted column names you
 want to tabulate.  Three variables generates a list of 2-way tabyls,

@@ -1,6 +1,6 @@
 ## Feature requests
 
-Briefly describe what the feature would do and why it is in scope for the janitor package.
+Briefly describe what the feature would do and why it is in scope for the tabyl package.
 
 ## Bug reports
 

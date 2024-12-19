@@ -32,14 +32,14 @@ functions to be called for precise formatting and presentation of results.
 E.g., display results as a mix of percentages, Ns, add totals rows or
 columns, rounding options, in the style of Microsoft Excel PivotTable.
 
-A \code{tabyl} can be the result of a call to \code{janitor::tabyl()}, in which case
+A \code{tabyl} can be the result of a call to \code{tabyl::tabyl()}, in which case
 these attributes are added automatically.  This function adds \code{tabyl} class
 attributes to a data.frame that isn't the result of a call to \code{tabyl} but
 meets the requirements of a two-way tabyl: 1) First column contains values of
 variable 1 2) Column names 2:n are the values of variable 2 3) Numeric values
 in columns 2:n are counts of the co-occurrences of the two variables.*
 \itemize{
-\item = this is the ideal form of a \code{tabyl}, but janitor's \code{adorn_} functions tolerate
+\item = this is the ideal form of a \code{tabyl}, but tabyl's \code{adorn_} functions tolerate
 and ignore non-numeric columns in positions 2:n.
 }
 
