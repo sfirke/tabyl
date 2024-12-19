@@ -1,5 +1,5 @@
 Package: tabyl
-Title: What the Package Does (One Line, Title Case)
+Title: Provide Quick Counts of Variable Combinations
 Version: 0.0.0.9000
 Authors@R: 
     person("Sam", "Firke", , "samuel.firke@gmail.com", role = c("aut", "cre"))
