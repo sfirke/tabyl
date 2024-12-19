@@ -1,22 +1,4 @@
-url: https://sfirke.github.io/tabyl/
+url: ~
 template:
   bootstrap: 5
 
-
-reference:
-- title: Exploring data
-  desc: >
-    tabyls are an enhanced version of tables. See `vignette("tabyls")`
-    for more details.
-  contents:
-  - tabyl
-  - starts_with("adorn")
-  - contains("tabyl")
-  - -contains('.test')
-
-- title: Misc / helpers
-  desc: >
-    These functions can help perform less frequent operations.
-  contents:
-  - chisq.test
-  - fisher.test
