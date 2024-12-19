@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>What the Package Does (One Line, Title Case) • tabyl</title>
+<title>Provide Quick Counts of Variable Combinations • tabyl</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="What the Package Does (One Line, Title Case)">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Provide Quick Counts of Variable Combinations">
 <meta name="description" content="The main tabyl functions can: provide quick counts of variable combinations (i.e., frequency tables and crosstabs). Other tabyl functions nicely format the tabulation results. These tabulate-and-report functions approximate popular features of SPSS and Microsoft Excel.">
 <meta property="og:description" content="The main tabyl functions can: provide quick counts of variable combinations (i.e., frequency tables and crosstabs). Other tabyl functions nicely format the tabulation results. These tabulate-and-report functions approximate popular features of SPSS and Microsoft Excel.">
 </head>
@@ -65,12 +65,53 @@
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sfirke/tabyl"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="exploring">Exploring<a class="anchor" aria-label="anchor" href="#exploring"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sfirke.github.io/tabyl/">tabyl</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="tabulating-tools">Tabulating tools<a class="anchor" aria-label="anchor" href="#tabulating-tools"></a>
+</h3>
+<p>A variable (or combinations of two or three variables) can be tabulated with <code><a href="reference/tabyl.html">tabyl()</a></code>. The resulting data.frame can be tweaked and formatted with the suite of <code>adorn_</code> functions for quick analysis and printing of pretty results in a report. <code>adorn_</code> functions can be helpful with non-tabyls, too.</p>
+<div class="section level4">
+<h4 id="tabyl-1">
+<code>tabyl()</code><a class="anchor" aria-label="anchor" href="#tabyl-1"></a>
+</h4>
+<p>Like <code><a href="https://rdrr.io/r/base/table.html" class="external-link">table()</a></code>, but pipe-able, data.frame-based, and fully featured.</p>
+<p><code><a href="reference/tabyl.html">tabyl()</a></code> can be called two ways:</p>
+<ul>
+<li>On a vector, when tabulating a single variable: <code>tabyl(roster$subject)</code>
+</li>
+<li>On a data.frame, specifying 1, 2, or 3 variable names to tabulate: <code>roster %&gt;% tabyl(subject, employee_status)</code>.
+<ul>
+<li>Here the data.frame is passed in with the <code>%&gt;%</code> pipe; this allows <code>tabyl</code> to be used in an analysis pipeline</li>
+</ul>
+</li>
+</ul>
+<p>One variable: <code>{r} roster %&gt;%   tabyl(subject)</code></p>
+<p>Two variables: <code>{r} roster %&gt;%   filter(hire_date &gt; as.Date("1950-01-01")) %&gt;%   tabyl(employee_status, full_time)</code></p>
+<p>Three variables: <code>{r} roster %&gt;%   tabyl(full_time, subject, employee_status, show_missing_levels = FALSE)</code></p>
+</div>
+<div class="section level4">
+<h4 id="adorning-tabyls">Adorning tabyls<a class="anchor" aria-label="anchor" href="#adorning-tabyls"></a>
+</h4>
+<p>The <code>adorn_</code> functions dress up the results of these tabulation calls for fast, basic reporting. Here are some of the functions that augment a summary table for reporting:</p>
+<p><code>{r} roster %&gt;%   tabyl(employee_status, full_time) %&gt;%   adorn_totals("row") %&gt;%   adorn_percentages("row") %&gt;%   adorn_pct_formatting() %&gt;%   adorn_ns() %&gt;%   adorn_title("combined")</code></p>
+<p>Pipe that right into <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> in your RMarkdown report.</p>
+<p>These modular adornments can be layered to reduce R’s deficit against Excel and SPSS when it comes to quick, informative counts. Learn more about <code><a href="reference/tabyl.html">tabyl()</a></code> and the <code>adorn_</code> functions from the <a href="https://sfirke.github.io/janitor/articles/tabyls.html" class="external-link">tabyls vignette</a>.</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="count-factor-levels-in-groups-of-high-medium-and-low-with-top_levels">Count factor levels in groups of high, medium, and low with <code>top_levels()</code>
+<a class="anchor" aria-label="anchor" href="#count-factor-levels-in-groups-of-high-medium-and-low-with-top_levels"></a>
+</h3>
+<p>Originally designed for use with Likert survey data stored as factors. Returns a <code>tbl_df</code> frequency table with appropriately-named rows, grouped into head/middle/tail groups.</p>
+<ul>
+<li>Takes a user-specified size for the head/tail groups</li>
+<li>Automatically calculates a percent column</li>
+<li>Supports sorting</li>
+<li>Can show or hide <code>NA</code> values.</li>
+</ul>
+<p><code>{r} f &lt;- factor(c("strongly agree", "agree", "neutral", "neutral", "disagree", "strongly agree"),   levels = c("strongly agree", "agree", "neutral", "disagree", "strongly disagree") ) top_levels(f) top_levels(f, n = 1)</code></p>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
