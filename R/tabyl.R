@@ -77,9 +77,12 @@ tabyl.default <- function(dat, show_na = TRUE, show_missing_levels = TRUE, ...) 
 
   # Try to retrieve label
   if (is.data.frame(dat)) {
-    var_label <- attr(dat[, var_name], "label", exact = TRUE) %||% var_name
+    var_label <- attr(dat[, var_name], "label", exact = TRUE)
   } else {
-    var_label <- attr(dat, "label", exact = TRUE) %||% var_name
+    var_label <- attr(dat, "label", exact = TRUE)
+  }
+  if (is.null(var_label)) {
+    var_label <- var_name
   }
 
   # if show_na is not length-1 logical, error helpfully (#377)
@@ -245,7 +248,10 @@ tabyl_2way <- function(dat, var1, var2, show_na = TRUE, show_missing_levels = TR
 
   row_var_name <- names(dat)[1]
   col_var_name <- names(dat)[2]
-  names(result)[1] <- attr(dat[, 1], "label", exact = TRUE) %||% names(result)[1]
+  name_result_1 <- attr(dat[, 1], "label", exact = TRUE)
+  if (!is.null(name_result_1)) {
+    names(result)[1] <- name_result_1
+  }
   data.frame(result, check.names = FALSE) %>%
     as_tabyl(axes = 2, row_var_name = row_var_name, col_var_name = col_var_name)
 }
