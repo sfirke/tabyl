@@ -1,8 +1,12 @@
 Package: tabyl
 Title: Provide Quick Counts of Variable Combinations
 Version: 0.0.0.9000
-Authors@R: 
-    person("Sam", "Firke", , "samuel.firke@gmail.com", role = c("aut", "cre"))
+Authors@R: c(
+    person("Sam", "Firke", , "samuel.firke@gmail.com", role = c("aut", "cre")),
+    person("Bill", "Denney", , "wdenney@humanpredictions.com", role = "aut"),
+    person("Chris", "Haid", , "chrishaid@gmail.com", role = "ctb"),
+    person("Olivier", "Roy", role = "ctb")
+  )
 Description: The main tabyl functions can: provide quick counts of variable
     combinations (i.e., frequency tables and crosstabs). Other tabyl functions
     nicely format the tabulation results. These tabulate-and-report functions
@@ -29,3 +33,4 @@ Suggests:
     tibble
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+URL: https://sfirke.github.io/tabyl/
