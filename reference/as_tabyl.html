@@ -5,13 +5,13 @@ This specialized kind of data.frame has attributes that enable adorn_
 functions to be called for precise formatting and presentation of results.
 E.g., display results as a mix of percentages, Ns, add totals rows or
 columns, rounding options, in the style of Microsoft Excel PivotTable.
-A tabyl can be the result of a call to janitor::tabyl(), in which case
+A tabyl can be the result of a call to tabyl::tabyl(), in which case
 these attributes are added automatically.  This function adds tabyl class
 attributes to a data.frame that isn't the result of a call to tabyl but
 meets the requirements of a two-way tabyl: 1) First column contains values of
 variable 1 2) Column names 2:n are the values of variable 2 3) Numeric values
 in columns 2:n are counts of the co-occurrences of the two variables.*
-= this is the ideal form of a tabyl, but janitor's adorn_ functions tolerate
+= this is the ideal form of a tabyl, but tabyl's adorn_ functions tolerate
 and ignore non-numeric columns in positions 2:n.
 
 
@@ -24,13 +24,13 @@ This specialized kind of data.frame has attributes that enable adorn_
 functions to be called for precise formatting and presentation of results.
 E.g., display results as a mix of percentages, Ns, add totals rows or
 columns, rounding options, in the style of Microsoft Excel PivotTable.
-A tabyl can be the result of a call to janitor::tabyl(), in which case
+A tabyl can be the result of a call to tabyl::tabyl(), in which case
 these attributes are added automatically.  This function adds tabyl class
 attributes to a data.frame that isn't the result of a call to tabyl but
 meets the requirements of a two-way tabyl: 1) First column contains values of
 variable 1 2) Column names 2:n are the values of variable 2 3) Numeric values
 in columns 2:n are counts of the co-occurrences of the two variables.*
-= this is the ideal form of a tabyl, but janitor's adorn_ functions tolerate
+= this is the ideal form of a tabyl, but tabyl's adorn_ functions tolerate
 and ignore non-numeric columns in positions 2:n.
 
 
@@ -80,12 +80,12 @@ This specialized kind of data.frame has attributes that enable <code>adorn_</cod
 functions to be called for precise formatting and presentation of results.
 E.g., display results as a mix of percentages, Ns, add totals rows or
 columns, rounding options, in the style of Microsoft Excel PivotTable.</p>
-<p>A <code>tabyl</code> can be the result of a call to <code><a href="https://sfirke.github.io/janitor/reference/tabyl.html" class="external-link">janitor::tabyl()</a></code>, in which case
+<p>A <code>tabyl</code> can be the result of a call to <code><a href="tabyl.html">tabyl::tabyl()</a></code>, in which case
 these attributes are added automatically.  This function adds <code>tabyl</code> class
 attributes to a data.frame that isn't the result of a call to <code>tabyl</code> but
 meets the requirements of a two-way tabyl: 1) First column contains values of
 variable 1 2) Column names 2:n are the values of variable 2 3) Numeric values
-in columns 2:n are counts of the co-occurrences of the two variables.*</p><ul><li><p>= this is the ideal form of a <code>tabyl</code>, but janitor's <code>adorn_</code> functions tolerate
+in columns 2:n are counts of the co-occurrences of the two variables.*</p><ul><li><p>= this is the ideal form of a <code>tabyl</code>, but tabyl's <code>adorn_</code> functions tolerate
 and ignore non-numeric columns in positions 2:n.</p></li>
 </ul><p>For instance, the result of <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code> followed by <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code>
 can be treated as a <code>tabyl</code>.</p>

@@ -79,9 +79,7 @@ choices of an R table to a Microsoft Excel PivotTable or even the table
 formatting provided by SPSS.</li>
 </ul>
 <p><code><a href="../reference/tabyl.html">tabyl()</a></code> is an approach to tabulating variables that
-addresses these shortcomings. It’s part of the janitor package because
-counting is such a fundamental part of data cleaning and
-exploration.</p>
+addresses these shortcomings.</p>
 <p><code><a href="../reference/tabyl.html">tabyl()</a></code> is tidyverse-aligned and is primarily built upon
 the dplyr and tidyr packages.</p>
 </div>
@@ -115,7 +113,7 @@ studying humans in the <code>starwars</code> dataset from dplyr:</p>
 </h3>
 <p>Tabulating a single variable is the simplest kind of tabyl:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor" class="external-link">janitor</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">tabyl</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">t1</span> <span class="op">&lt;-</span> <span class="va">humans</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">eye_color</span><span class="op">)</span></span>
@@ -297,7 +295,10 @@ results for interactive analysis or for sharing in a report, e.g., with
 <span>  <span class="fu"><a href="../reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>rounding <span class="op">=</span> <span class="st">"half up"</span>, digits <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/adorn_title.html">adorn_title</a></span><span class="op">(</span><span class="st">"combined"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Registered S3 method overwritten by 'janitor':</span></span>
+<span><span class="co">#&gt;   method      from </span></span>
+<span><span class="co">#&gt;   print.tabyl tabyl</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="20%">
@@ -374,8 +375,8 @@ whether to append the <code>%</code> symbol</li>
 <li>
 <strong><code><a href="../reference/adorn_rounding.html">adorn_rounding()</a></code></strong>: Round a data.frame
 of numbers (usually the result of <code>adorn_percentages</code>),
-either using the base R <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">round()</a></code> function or using janitor’s
-<code><a href="https://sfirke.github.io/janitor/reference/round_half_up.html" class="external-link">janitor::round_half_up()</a></code> to round all ties up (<a href="https://stackoverflow.com/a/12688836/4470365" class="external-link">thanks,
+either using the base R <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">round()</a></code> function or using tabyl’s
+<code>tabyl::round_half_up()</code> to round all ties up (<a href="https://stackoverflow.com/a/12688836/4470365" class="external-link">thanks,
 StackOverflow</a>).
 <ul>
 <li>e.g., round 10.5 up to 11, consistent with Excel’s tie-breaking
@@ -561,7 +562,7 @@ using <code><a href="../reference/adorn_ns.html">adorn_ns()</a></code>.</p>
 <div class="section level4">
 <h4 id="questions-comments">Questions? Comments?<a class="anchor" aria-label="anchor" href="#questions-comments"></a>
 </h4>
-<p>File <a href="https://github.com/sfirke/janitor/issues" class="external-link">an issue on
+<p>File <a href="https://github.com/sfirke/tabyl/issues" class="external-link">an issue on
 GitHub</a> if you have suggestions related to <code><a href="../reference/tabyl.html">tabyl()</a></code> and
 its <code>adorn_</code> helpers or encounter problems while using
 them.</p>
