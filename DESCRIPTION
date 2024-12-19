@@ -29,3 +29,4 @@ Suggests:
     tibble
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+URL: https://sfirke.github.io/tabyl/
